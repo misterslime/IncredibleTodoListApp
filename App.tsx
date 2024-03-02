@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React, { useState} from 'react';
 import ToDoList from './ToDoList';
 import ToDoForm from './ToDoForm';
 import type {PropsWithChildren} from 'react';
@@ -67,13 +67,19 @@ function App(): React.JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  const [tasks, setTasks] = React.useState([
+    'Do laundry',
+    'Go to the gym',
+    'Walk dog',
+  ]);
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      <ToDoList></ToDoList>
+      <ToDoList tasks={tasks} />
       <ToDoForm></ToDoForm>
     </SafeAreaView>
   );
