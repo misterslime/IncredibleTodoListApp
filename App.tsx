@@ -73,6 +73,10 @@ function App(): React.JSX.Element {
     'Walk dog',
   ]);
 
+  const addTask = (task: string) => {
+    setTasks([...tasks, task]);
+  };
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -80,7 +84,7 @@ function App(): React.JSX.Element {
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <ToDoList tasks={tasks} />
-      <ToDoForm></ToDoForm>
+      <ToDoForm addTask={addTask} />
     </SafeAreaView>
   );
 }

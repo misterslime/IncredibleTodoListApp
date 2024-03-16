@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
   StyleSheet,
@@ -7,14 +7,19 @@ import {
   View
 } from 'react-native';
 
-function ToDoForm(): React.JSX.Element {
-    return (
+function ToDoForm({ addTask = (task: string) => {} }): React.JSX.Element {
+
+  const [taskText, setTaskText] = React.useState('');
+
+  return (
       <View style={styles.form}>
         <TextInput
             style={styles.input}
             placeholder="Add a new task..."
+            value={taskText}
+            onChangeText={(text) => setTaskText(text)}
         />
-        <Button title="Add" />
+        <Button title="Add" onPress={() => addTask(taskText)} />
       </View>
     );
   }
