@@ -1,5 +1,4 @@
 import React, { useState} from 'react';
-import type {PropsWithChildren} from 'react';
 import {
   ScrollView,
   StyleSheet,
@@ -8,10 +7,10 @@ import {
   View
 } from 'react-native';
 
-function ToDoList({tasks}: { tasks: string[] }): React.JSX.Element {
+function ToDoList({tasks}) {
     return (
       <ScrollView>
-        {tasks.map((value: string, index: number) => {
+        {tasks.map((value, index) => {
           return (
             <Pressable key={index}>
               <View style={[styles.task]}>

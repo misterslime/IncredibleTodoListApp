@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import type {PropsWithChildren} from 'react';
 import {
   StyleSheet,
   TextInput,
@@ -7,7 +6,7 @@ import {
   View
 } from 'react-native';
 
-function ToDoForm({ addTask = (task: string) => {} }): React.JSX.Element {
+function ToDoForm({ addTask = (task) => {} }) {
 
   const [taskText, setTaskText] = React.useState('');
 
